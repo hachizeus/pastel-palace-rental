@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { useParams, useLocation, useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, PayPal, Phone } from 'lucide-react';
+import { ArrowLeft, Calendar, User,Phone } from 'lucide-react';
+import { FaPaypal } from 'react-icons/fa';
 import { format } from 'date-fns';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -111,7 +112,7 @@ const BookNow = () => {
                     className="w-full flex items-center"
                   >
                     <div className="h-12 w-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                      <PayPal className="h-6 w-6 text-white" />
+                      <FaPaypal className="mr-2 h-5 w-5"/>
                     </div>
                     <div className="flex-1 text-left">
                       <h3 className="font-medium">Pay with PayPal</h3>

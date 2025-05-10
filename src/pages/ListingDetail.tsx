@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
-import { Star, MapPin, Heart, Share, User, Calendar, ArrowLeft, WhatsApp } from 'lucide-react';
+import { Star, MapPin, Heart, Share, User, Calendar, ArrowLeft} from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Calendar as CalendarComponent } from '@/components/ui/calendar';
 import {
@@ -389,15 +390,15 @@ const ListingDetail = () => {
                     Reserve
                   </Button>
                   
-                  <Button 
-                    onClick={handleWhatsAppBooking}
-                    className="w-full bg-green-500 hover:bg-green-600 text-white btn-hover-scale rounded-xl flex items-center justify-center"
-                    size="lg"
-                    disabled={!listing.availability}
-                  >
-                    <WhatsApp className="mr-2 h-5 w-5" /> 
-                    Book via WhatsApp
-                  </Button>
+                 <Button 
+  onClick={handleWhatsAppBooking}
+  className="w-full bg-green-500 hover:bg-green-600 text-white btn-hover-scale rounded-xl flex items-center justify-center"
+  size="lg"
+  disabled={!listing.availability}
+>
+  <FaWhatsapp className="mr-2 h-5 w-5" /> 
+  Book via WhatsApp
+</Button>
                 </div>
                 
                 <p className="text-center text-sm text-gray-500 mt-3">

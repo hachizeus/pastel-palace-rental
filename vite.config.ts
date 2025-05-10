@@ -1,19 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
+import { componentTagger } from "lovable-tagger"; // Ensure this import is correct
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/pastel-palace-rental/', 
+   base: process.env.VITE_BASE || '/', 
   server: {
-    host: "::",
     port: 8080,
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger(),
-  ].filter(Boolean),
+    mode === 'development' && componentTagger(), // Conditionally apply the plugin only in development mode
+  ].filter(Boolean), // Filters out falsey values like undefined or false
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
