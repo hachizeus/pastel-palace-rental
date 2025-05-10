@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger"; // Ensure this import is corre
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-   base: process.env.VITE_BASE || '/', 
+   base: process.env.NODE_ENV === 'production' ? '/boltbnb/' : '/',
   server: {
     port: 8080,
   },
