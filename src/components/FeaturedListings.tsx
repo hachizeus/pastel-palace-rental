@@ -13,7 +13,8 @@ const featuredListings = [
     rating: 4.92,
     reviewCount: 56,
     isSuperhost: true,
-    category: 'beachfront'
+    category: 'beachfront',
+    availability: true
   },
   {
     id: '2',
@@ -23,7 +24,8 @@ const featuredListings = [
     price: 289,
     rating: 4.85,
     reviewCount: 42,
-    category: 'cabin'
+    category: 'cabin',
+    availability: true
   },
   {
     id: '3',
@@ -33,7 +35,8 @@ const featuredListings = [
     price: 199,
     rating: 4.78,
     reviewCount: 103,
-    category: 'design'
+    category: 'design',
+    availability: false
   },
   {
     id: '4',
@@ -44,7 +47,8 @@ const featuredListings = [
     rating: 4.93,
     reviewCount: 87,
     isSuperhost: true,
-    category: 'countryside'
+    category: 'countryside',
+    availability: true
   },
   {
     id: '5',
@@ -54,7 +58,8 @@ const featuredListings = [
     price: 219,
     rating: 4.81,
     reviewCount: 69,
-    category: 'historic'
+    category: 'historic',
+    availability: true
   },
   {
     id: '6',
@@ -64,7 +69,8 @@ const featuredListings = [
     price: 279,
     rating: 4.88,
     reviewCount: 51,
-    category: 'cabin'
+    category: 'cabin',
+    availability: false
   },
   {
     id: '7',
@@ -75,7 +81,8 @@ const featuredListings = [
     rating: 4.96,
     reviewCount: 78,
     isSuperhost: true,
-    category: 'tropical'
+    category: 'tropical',
+    availability: true
   },
   {
     id: '8',
@@ -85,7 +92,8 @@ const featuredListings = [
     price: 119,
     rating: 4.79,
     reviewCount: 64,
-    category: 'tiny'
+    category: 'tiny',
+    availability: true
   }
 ];
 

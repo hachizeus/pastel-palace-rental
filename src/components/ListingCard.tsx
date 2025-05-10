@@ -20,6 +20,7 @@ export interface ListingProps {
   isSuperhost?: boolean;
   dates?: string;
   category?: string;
+  availability?: boolean;
 }
 
 const ListingCard: React.FC<ListingProps> = ({
@@ -31,7 +32,8 @@ const ListingCard: React.FC<ListingProps> = ({
   rating,
   reviewCount,
   isSuperhost = false,
-  dates
+  dates,
+  availability = true
 }) => {
   return (
     <Link to={`/listings/${id}`}>
@@ -46,6 +48,11 @@ const ListingCard: React.FC<ListingProps> = ({
           {isSuperhost && (
             <Badge className="absolute top-2 left-2 bg-white text-airbnb-dark">
               Superhost
+            </Badge>
+          )}
+          {availability !== undefined && (
+            <Badge className={`absolute top-2 ${isSuperhost ? 'left-20' : 'left-2'} ${availability ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+              {availability ? 'Available' : 'Unavailable'}
             </Badge>
           )}
         </div>

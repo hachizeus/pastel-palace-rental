@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
-import { Star, MapPin, Heart, Share, User, Calendar, ArrowLeft } from 'lucide-react';
+import { Star, MapPin, Heart, Share, User, Calendar, ArrowLeft, WhatsApp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Calendar as CalendarComponent } from '@/components/ui/calendar';
 import {
@@ -52,13 +52,15 @@ const listingsMock = [
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1170',
       isSuperhost: true,
       joinDate: 'January 2018'
-    }
+    },
+    availability: true
   },
   // More mock listings would be here
 ];
 
 const ListingDetail = () => {
   const { id } = useParams<{id: string}>();
+  const navigate = useNavigate();
   const [checkInDate, setCheckInDate] = useState<Date>();
   const [checkOutDate, setCheckOutDate] = useState<Date>();
   const [guests, setGuests] = useState(1);
@@ -98,16 +100,38 @@ const ListingDetail = () => {
       return;
     }
     
-    console.log('Booking', {
-      listingId: id,
-      checkIn: checkInDate,
-      checkOut: checkOutDate,
-      guests,
-      totalPrice: calculateTotalPrice()
+    // Navigate to book now page with booking details
+    navigate(`/book-now/${id}`, { 
+      state: { 
+        listingId: id,
+        checkIn: checkInDate,
+        checkOut: checkOutDate,
+        guests,
+        totalPrice: calculateTotalPrice() + 85 + 75,
+        listingTitle: listing.title,
+        listingImage: listing.images[0]
+      } 
     });
+  };
+
+  const handleWhatsAppBooking = () => {
+    if (!checkInDate || !checkOutDate) {
+      alert('Please select check-in and check-out dates');
+      return;
+    }
+
+    // Format dates for WhatsApp message
+    const checkInFormatted = format(checkInDate, 'MMM d, yyyy');
+    const checkOutFormatted = format(checkOutDate, 'MMM d, yyyy');
     
-    // Here you would normally handle the booking process
-    alert('Booking successful! (This is just a demo)');
+    // Create WhatsApp booking message
+    const message = `Hello! I'd like to book "${listing.title}" from ${checkInFormatted} to ${checkOutFormatted} for ${guests} guest(s). Total: $${calculateTotalPrice() + 85 + 75}`;
+    
+    // Create WhatsApp link with encoded message
+    const whatsappLink = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappLink, '_blank');
   };
   
   return (
@@ -145,6 +169,18 @@ const ListingDetail = () => {
               <Heart className="h-4 w-4 mr-1" /> Save
             </Button>
           </div>
+        </div>
+        
+        {/* Availability Badge */}
+        <div className="mb-4">
+          <Badge className={cn(
+            "px-3 py-1 text-sm font-medium",
+            listing.availability 
+              ? "bg-green-100 text-green-800" 
+              : "bg-red-100 text-red-800"
+          )}>
+            {listing.availability ? "Available" : "Not Available"}
+          </Badge>
         </div>
         
         {/* Image Gallery */}
@@ -343,13 +379,26 @@ const ListingDetail = () => {
                   </div>
                 </div>
                 
-                <Button 
-                  onClick={handleBooking}
-                  className="w-full bg-airbnb-primary hover:bg-airbnb-primary/90 text-white btn-hover-scale rounded-xl"
-                  size="lg"
-                >
-                  Reserve
-                </Button>
+                <div className="space-y-3">
+                  <Button 
+                    onClick={handleBooking}
+                    className="w-full bg-airbnb-primary hover:bg-airbnb-primary/90 text-white btn-hover-scale rounded-xl"
+                    size="lg"
+                    disabled={!listing.availability}
+                  >
+                    Reserve
+                  </Button>
+                  
+                  <Button 
+                    onClick={handleWhatsAppBooking}
+                    className="w-full bg-green-500 hover:bg-green-600 text-white btn-hover-scale rounded-xl flex items-center justify-center"
+                    size="lg"
+                    disabled={!listing.availability}
+                  >
+                    <WhatsApp className="mr-2 h-5 w-5" /> 
+                    Book via WhatsApp
+                  </Button>
+                </div>
                 
                 <p className="text-center text-sm text-gray-500 mt-3">
                   You won't be charged yet
