@@ -2,13 +2,13 @@
 import React from 'react';
 import ListingCard from './ListingCard';
 
-// Mock data for featured listings
+// Mock data for featured listings with simpler interior images
 const featuredListings = [
   {
     id: '1',
     title: 'Luxurious Beach Villa',
     location: 'Malibu, California',
-    imageUrl: 'https://images.unsplash.com/photo-1502672023488-70e25813eb80?q=80&w=1064',
+    imageUrl: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1170',
     price: 349,
     rating: 4.92,
     reviewCount: 56,
@@ -18,8 +18,8 @@ const featuredListings = [
   {
     id: '2',
     title: 'Mountain Retreat with View',
+    imageUrl: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1170',
     location: 'Aspen, Colorado',
-    imageUrl: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=930',
     price: 289,
     rating: 4.85,
     reviewCount: 42,
@@ -29,7 +29,7 @@ const featuredListings = [
     id: '3',
     title: 'Modern Downtown Apartment',
     location: 'New York City, New York',
-    imageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1080',
+    imageUrl: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1170',
     price: 199,
     rating: 4.78,
     reviewCount: 103,
@@ -39,7 +39,7 @@ const featuredListings = [
     id: '4',
     title: 'Cozy Countryside Cottage',
     location: 'Portland, Oregon',
-    imageUrl: 'https://images.unsplash.com/photo-1532798442725-41036acc7489?q=80&w=933',
+    imageUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1170',
     price: 149,
     rating: 4.93,
     reviewCount: 87,
@@ -50,7 +50,7 @@ const featuredListings = [
     id: '5',
     title: 'Historic City Townhouse',
     location: 'Boston, Massachusetts',
-    imageUrl: 'https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=1170',
+    imageUrl: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=1171',
     price: 219,
     rating: 4.81,
     reviewCount: 69,
@@ -60,7 +60,7 @@ const featuredListings = [
     id: '6',
     title: 'Lakefront Cabin with Dock',
     location: 'Lake Tahoe, Nevada',
-    imageUrl: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1170',
+    imageUrl: 'https://images.unsplash.com/photo-1501876725168-00c445821c9e?q=80&w=1174',
     price: 279,
     rating: 4.88,
     reviewCount: 51,
@@ -70,7 +70,7 @@ const featuredListings = [
     id: '7',
     title: 'Tropical Paradise Villa',
     location: 'Miami, Florida',
-    imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1074',
+    imageUrl: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1174',
     price: 329,
     rating: 4.96,
     reviewCount: 78,
@@ -81,7 +81,7 @@ const featuredListings = [
     id: '8',
     title: 'Tiny House Adventure',
     location: 'Austin, Texas',
-    imageUrl: 'https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=1170',
+    imageUrl: 'https://images.unsplash.com/photo-1505691723518-36a5ac3be353?q=80&w=1170',
     price: 119,
     rating: 4.79,
     reviewCount: 64,

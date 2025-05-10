@@ -24,7 +24,7 @@ import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-// Mock data for listing details
+// Mock data for listing details with simpler interior images
 const listingsMock = [
   {
     id: '1',
@@ -32,11 +32,11 @@ const listingsMock = [
     description: 'Experience beachfront luxury living with this stunning villa overlooking the Pacific Ocean. Wake up to panoramic ocean views and enjoy direct beach access. This modern villa features high ceilings, an open floor plan, and premium finishes throughout.',
     location: 'Malibu, California',
     images: [
-      'https://images.unsplash.com/photo-1502672023488-70e25813eb80?q=80&w=1064',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1170',
-      'https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1287',
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1287',
-      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1170'
+      'https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1170',
+      'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1170',
+      'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=1171',
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1170',
+      'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1174'
     ],
     price: 349,
     rating: 4.92,
